@@ -3,7 +3,7 @@ pipeline {
         label 'nodejs'
        }
        environment {
-           DOCKER_IMAGE = 'harbor.bahur:443/node-app/nodejs-app:simple'
+           DOCKER_IMAGE = 'harbor.bahur:443/users-demo/users-api:latest'
 
        }
 
