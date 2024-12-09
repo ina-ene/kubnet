@@ -3,7 +3,7 @@ pipeline {
         label 'nodejs'
        }
        environment {
-           DOCKER_IMAGE = 'harbor.bahur:443/users-demo/users:latest'
+           DOCKER_IMAGE = 'harbor.bahur:443/node-app/nodejs-app:simple'
 
        }
 
@@ -11,9 +11,8 @@ pipeline {
            stage('Build Docker Image') {
                steps {
                    script {
-                       
-                        dockerImage = docker.build("${DOCKER_IMAGE}", "users-api")
-     
+                       dockerImage = docker.build(DOCKER_IMAGE)
+                   }
                }
            }
 
@@ -35,4 +34,4 @@ pipeline {
            }
        }
    }
-}
+   
