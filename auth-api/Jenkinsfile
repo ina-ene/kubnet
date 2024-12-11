@@ -1,0 +1,36 @@
+pipeline {
+       agent  {
+        label 'nodejs'
+       }
+       environment {
+           DOCKER_IMAGE = 'harbor.bahur:443/auth-demo/auth-api:latest'
+
+       }
+
+       stages {
+           stage('Build Docker Image') {
+               steps {
+                   script {
+                       dockerImage = docker.build("${DOCKER_IMAGE}", "auth-api")
+                   }
+               }
+           }
+
+           stage('Push to Harbor') {
+               steps {
+            
+                   script {
+                       docker.withRegistry('https://harbor.bahur:443', 'jenkins-harbor-robot') {
+                           dockerImage.push()
+                       }
+                   }
+               }
+           }
+       }
+       
+       post {
+           always {
+               cleanWs()
+           }
+       }
+   }
