@@ -1,25 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: users-deployment
+  name: auth-deployment
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: users
+      app: auth
   template:
     metadata:
       labels:
-        app: users
+        app: auth
     spec:
       imagePullSecrets:
       - name: harbor-secret
       containers:
-      - name: users
-        image: harbor.bahur/users-demo/users-api:latest
-        env:
-        - name: AUTH_ADDRESS
-          value: localhost
+      - name: auth
+        image: harbor.bahur/auth-demo/auth-api:latest
         resources:
           limits:
             memory: "128Mi"
