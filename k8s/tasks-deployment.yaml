@@ -20,6 +20,8 @@ spec:
         env:
         - name: AUTH_ADDRESS
           value: "auth-service.node-test"
+        - name: TASKS_FOLDER
+          value: tasks
         resources:
           limits:
             memory: "128Mi"
