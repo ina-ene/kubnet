@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: users-deployment
+  name: tasks-deployment
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: users
+      app: tasks
   template:
     metadata:
       labels:
-        app: users
+        app: tasks
     spec:
       imagePullSecrets:
       - name: harbor-secret
       containers:
-      - name: users
-        image: harbor.bahur/users-demo/users-api:latest
+      - name: tasks
+        image: harbor.bahur/tasks-demo/tasks-api:latest
         env:
         - name: AUTH_ADDRESS
           value: "auth-service.node-test"
