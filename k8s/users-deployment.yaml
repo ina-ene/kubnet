@@ -19,7 +19,7 @@ spec:
         image: harbor.bahur/users-demo/users-api:latest
         env:
         - name: AUTH_ADDRESS
-          value: localhost
+          value: "auth-service.default"
         resources:
           limits:
             memory: "128Mi"
