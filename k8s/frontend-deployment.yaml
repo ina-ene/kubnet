@@ -16,7 +16,7 @@ spec:
       - name: harbor-secret
       containers:
       - name: frontend
-        image: harbor.bahur/frontend-demo/frontend-api:latest
+        image: harbor.bahur/frontend-demo/frontend:latest
         resources:
           limits:
             memory: "128Mi"
