@@ -40,7 +40,7 @@ function NewTask(props) {
           value={enteredText}
         ></input>
       </div>
-      <button type='submit'>Add Task</button>
+      <button type='submit'>Add Task Now!</button>
     </form>
   );
 }
